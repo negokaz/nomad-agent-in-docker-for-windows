@@ -5,6 +5,7 @@ services:
     build:
       context: ./nomad
       args:
+        - NOMAD_VERSION=0.12.5
         - http_proxy=${http_proxy}
         - https_proxy=${https_proxy}
     command: [ "agent", "-dev", "-bind=0.0.0.0" ]
