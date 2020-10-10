@@ -5,13 +5,13 @@ services:
     build:
       context: ./nomad
       args:
-        - NOMAD_VERSION=0.12.5
-        - http_proxy=${http_proxy}
-        - https_proxy=${https_proxy}
+        NOMAD_VERSION: 0.12.5
+        http_proxy: null  # use host env
+        https_proxy: null # use host env
     command: [ "agent", "-dev", "-bind=0.0.0.0" ]
     environment:
-      - http_proxy
-      - https_proxy
+      http_proxy: null  # use host env
+      https_proxy: null # use host env
     privileged: true
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
