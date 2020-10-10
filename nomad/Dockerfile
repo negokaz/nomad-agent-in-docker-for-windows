@@ -8,8 +8,8 @@ RUN set -xe ;\
 
 FROM ubuntu:latest
 COPY --from=0 /tmp/nomad /usr/local/bin/nomad
-RUN set -xe ;\
-    useradd --create-home nomad
-USER nomad
-WORKDIR /home/nomad
+# Nomad client must be run as root
+# see also: https://www.nomadproject.io/docs/install/production/nomad-agent#permissions
+USER root
+WORKDIR /workspace
 ENTRYPOINT [ "/usr/local/bin/nomad" ]

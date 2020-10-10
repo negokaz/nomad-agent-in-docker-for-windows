@@ -18,7 +18,7 @@ services:
       - /tmp
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - .:/home/nomad
+      - .:/workspace
     ports:
         - 127.0.0.1:4646:4646 # HTTP
         - 127.0.0.1:4647:4647 # RPC
