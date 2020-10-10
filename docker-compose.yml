@@ -5,6 +5,7 @@ services:
     build:
       context: ./nomad
       args:
+        # latest version is found here: https://github.com/hashicorp/nomad/releases
         NOMAD_VERSION: 0.12.5
         http_proxy: null  # use host env
         https_proxy: null # use host env
