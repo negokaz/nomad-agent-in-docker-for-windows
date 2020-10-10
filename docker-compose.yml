@@ -7,6 +7,8 @@ services:
       args:
         # latest version is found here: https://github.com/hashicorp/nomad/releases
         NOMAD_VERSION: 0.12.5
+        # latest version is found here: https://github.com/hashicorp/consul/releases
+        CONSUL_VERSION: 1.8.4
         http_proxy: null  # use host env
         https_proxy: null # use host env
     command: [ "agent", "-dev", "-bind=0.0.0.0" ]
@@ -20,5 +22,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - .:/workspace
     ports:
-        - 127.0.0.1:4646:4646 # HTTP
-        - 127.0.0.1:4647:4647 # RPC
+        - 127.0.0.1:4646:4646 # Nomad HTTP
+        - 127.0.0.1:4647:4647 # Nomad RPC
+        - 127.0.0.1:8500:8500 # Consol HTTP
+        - 127.0.0.1:8300:8300 # Consol RPC
