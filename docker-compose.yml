@@ -13,6 +13,8 @@ services:
       http_proxy: null  # use host env
       https_proxy: null # use host env
     privileged: true
+    tmpfs:
+      - /tmp
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - .:/home/nomad
