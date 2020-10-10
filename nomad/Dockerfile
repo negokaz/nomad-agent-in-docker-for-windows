@@ -8,6 +8,8 @@ RUN set -xe ;\
 
 FROM ubuntu:latest
 COPY --from=0 /tmp/nomad /usr/local/bin/nomad
-VOLUME [ "/workspace" ]
-WORKDIR /workspace
+RUN set -xe ;\
+    useradd --create-home nomad
+USER nomad
+WORKDIR /home/nomad
 ENTRYPOINT [ "/usr/local/bin/nomad" ]
